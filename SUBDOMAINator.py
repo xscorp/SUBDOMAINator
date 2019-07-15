@@ -24,7 +24,7 @@ parser.add_argument("--domain-list" , "-l" , help="Specify custom domain list")
 arguments = parser.parse_args()
 
 def print_banner():
-    cprint(figlet_format("SUBDOMAINator" , font = "slant") , "white" , "on_red")
+    cprint(figlet_format("SUBDOMAINator" , font = "slant") , "white")
 
 def pre_checks():
     #check whether the wordlist is right
@@ -77,7 +77,7 @@ def pre_checks():
     if not (arguments.url or arguments.domain):
         if arguments.debug:
             print(Fore.YELLOW + "[+]Please specify a URL or a domain to test" + Style.RESET_ALL)
-        sys.exit()
+        sys.exit()    
     
     return (data , TYPE)     #all validity checks has been passed
 
@@ -91,10 +91,10 @@ def check_wordlist(wordlist):
     try:
         wordlist = open(arguments.wordlist , 'r')
     except FileNotFoundError:
-        print("No such wordlist exist in the specified path")
+        print(Fore.RED + "[!]No such wordlist exist in the specified path" + Style.RESET_ALL)
         return False
     except:
-        print("A problem occurred while opening the wordlist!")
+        print(Fore.RED + "[!]A problem occurred while opening the wordlist!" + Style.RESET_ALL)
         return False
     else:
         wordlist.close()
@@ -102,9 +102,15 @@ def check_wordlist(wordlist):
 
 
 def subdomain_digger(data, TYPE):
+    if arguments.debug:
+        print(Fore.YELLOW + "[+]Opening subdomain wordlist" + Style.RESET_ALL)
     subdomains_list = open(arguments.wordlist , "r").read().splitlines()
     if TYPE == "DOMAIN":
+        if arguments.debug:
+            print(Fore.YELLOW + "[+]Opening default protocol wordlist" + Style.RESET_ALL)
         protocols_list = open("default_protocols.txt" , "r").read().splitlines()
+        if arguments.debug:
+            print(Fore.YELLOW + "[+]Opening default domain end wordlist\n" + Style.RESET_ALL)
         domains_list = open(arguments.domain_list , "r").read().splitlines()
         for protocol in protocols_list:
             for domain in domains_list:
@@ -120,12 +126,14 @@ def subdomain_digger(data, TYPE):
 def request_url(url):
     user_agent_list = open("default_user_agents.txt" ,"r").read().splitlines()
     user_agent = user_agent_list[random.randint(0 , 10)]
+    #for space indentation of response code
+    space_strip = " " * (40-len(url))
     try:
         response = requests.get(url , headers = {"User-Agent": user_agent} , timeout=5)
         if response.status_code >= 200 and response.status_code < 400:
-            print(Fore.GREEN + "[*]" + url + f"\tRESPONSE = {response.status_code}")
+            print(Fore.GREEN + "[*]" + url + space_strip + f"RESPONSE = {response.status_code}" + Style.RESET_ALL)
         else:
-            print(Fore.RED + "[-]" + url + f"\tRESPONSE = {response.status_code}")
+            print(Fore.RED + "[-]" + url + space_strip + f"RESPONSE = {response.status_code}" + Style.RESET_ALL)
     except:
         pass
         
