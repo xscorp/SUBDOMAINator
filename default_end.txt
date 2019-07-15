@@ -1,0 +1,6 @@
+.com
+.in
+.co.in
+.ag
+.uk
+.org

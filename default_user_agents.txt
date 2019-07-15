@@ -1,0 +1,11 @@
+Mozilla/5.0 (Linux 2.4.18-18.7.x i686; U) Opera 6.03 [en]
+Mozilla/5.0 (Linux 2.4.18-ltsp-1 i686; U) Opera 6.1 [en]
+Mozilla/5.0 (Linux 2.4.19-16mdk i686; U) Opera 6.11 [en]
+Mozilla/5.0 (Linux 2.4.21-0.13mdk i686; U) Opera 7.11 [en]
+Mozilla/5.0 (Linux X86; U; Debian SID; it; rv:1.9.0.1) Gecko/2008070208 Debian IceWeasel/3.0.1
+Mozilla/5.0 (Linux i686 ; U; en; rv:1.8.1) Gecko/20061208 Firefox/2.0.0 Opera 9.70
+Mozilla/5.0 (Linux i686; U; en; rv:1.8.1) Gecko/20061208 Firefox/2.0.0
+Mozilla/5.0 (Linux i686; U; en; rv:1.9.1.6) Gecko/20091201 Firefox/3.5.6 Opera 10.51
+Mozilla/5.0 (Linux) Gecko Iceweasel (Debian) Mnenhy
+Mozilla/5.0 (Linux; U) Opera 6.02 [en]
+Mozilla/5.0 (Linux; U; en-US) AppleWebKit/525.13 (KHTML, like Gecko) Chrome/0.2.149.27 Safari/525.13

@@ -1,0 +1,11 @@
+admin
+portal
+login
+signup
+accounts
+web
+service
+customer
+sales
+management
+
